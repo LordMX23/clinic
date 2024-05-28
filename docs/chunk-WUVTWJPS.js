@@ -1,0 +1,1 @@
+import{Kb as r,Ob as p,ia as n,ub as i,vb as o}from"./chunk-TZK23Q4Z.js";var f=(()=>{let e=class e{};e.\u0275fac=function(a){return new(a||e)},e.\u0275cmp=n({type:e,selectors:[["app-search-patient-page"]],standalone:!0,features:[p],decls:2,vars:0,template:function(a,c){a&1&&(i(0,"p"),r(1,"search-patient-page works!"),o())}});let t=e;return t})();export{f as default};
