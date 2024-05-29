@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './login-page.component.html',
   styles: `
   .gradient-custom {
@@ -18,4 +19,15 @@ background: linear-gradient(to right, rgba(63,81,181, 1), rgba(63,81,181, 1))
 }
   `,
 })
-export default class LoginPageComponent {}
+export default class LoginPageComponent {
+  private fb = inject(FormBuilder)
+
+  public myForm: FormGroup = this.fb.group({
+    email:    ['',[Validators.required, Validators.email]],
+    password: ['',[Validators.required, Validators.minLength(6)]]
+  });
+
+  login(){
+    console.log(this.myForm.value);
+  }
+}

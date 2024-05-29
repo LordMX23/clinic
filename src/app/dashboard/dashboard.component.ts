@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { CommonModule } from '@angular/common';
+import { MenuService } from './services/menu.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,10 @@ import { CommonModule } from '@angular/common';
 })
 export default class DashboardComponent {
 
-  private router = inject( Router );
+  private serviceMenu = inject( MenuService );
+  // private router = inject( Router );
+
+  //public sidebarItems = computed(() => this.serviceMenu.menuItems);
 
   public sidebarItems = [
     {label: 'Home', icon: 'dashboard', url:'./home'},
