@@ -23,7 +23,10 @@
                 </div>
 
                 <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5"
-                  type="submit">Iniciar sesion</button>
+                  type="submit"
+                  [disabled]="myForm.invalid"
+                  
+                  >Iniciar sesion</button>
 
               </form>
 

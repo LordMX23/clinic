@@ -3,6 +3,8 @@ import { Router, RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { CommonModule } from '@angular/common';
 import { MenuService } from './services/menu.service';
+import { AuthService } from '../auth/services/auth.service';
+import { User } from '../auth/interfaces/user.interface';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,9 +15,12 @@ import { MenuService } from './services/menu.service';
 })
 export default class DashboardComponent {
 
-  private serviceMenu = inject( MenuService );
-  // private router = inject( Router );
+  private serviceMenu = inject(MenuService);
+  private authService = inject(AuthService);
 
+  public user = computed(()=> this.authService.currentUser());
+
+  // private router = inject( Router );
   //public sidebarItems = computed(() => this.serviceMenu.menuItems);
 
   public sidebarItems = [
@@ -24,5 +29,9 @@ export default class DashboardComponent {
     {label: '...', icon: 'label', url:'./home'}
   ];
 
+  onLogout()
+  {
+    this.authService.logout();
+  }
 
 }
